@@ -14,7 +14,7 @@ module.exports = defineConfig({
     html: true,
     json: true,
     charts: true,
-    reportPageTitle: "Axur Test Report",
+    reportPageTitle: "Keeggo Test Report",
     embeddedScreenshots: true,
     inlineAssets: true,
     saveAllAttempts: true,

@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-const API_BASE_URL = 'http://localhost:3000'; // As per your requirement
+const API_BASE_URL = 'http://localhost:3000';
 
 class APIService {
 
@@ -11,9 +11,9 @@ class APIService {
             body: payload,
             headers: {
                 'Content-Type': 'application/json',
-                ...headers, // Allow overriding or adding more headers
+                ...headers,
             },
-            failOnStatusCode: false // Allows us to assert status codes in steps
+            failOnStatusCode: false
         });
     }
 
@@ -25,20 +25,8 @@ class APIService {
             headers: {
                 ...headers,
             },
-            failOnStatusCode: false // Allows us to assert status codes in steps
+            failOnStatusCode: false
         });
-    }
-
-    // Example: Add product to cart
-    addProductToCart(productDetails) {
-        // Assuming productDetails is an object like { productId: "ID", quantity: 1 }
-        return this.postRequest('/api/cart/add', productDetails);
-    }
-
-    // Example: Perform checkout
-    performCheckout(checkoutPayload) {
-        // Assuming checkoutPayload is an object like { cartId: "CART_ID", paymentInfo: {...} }
-        return this.postRequest('/api/checkout', checkoutPayload);
     }
 }
 
