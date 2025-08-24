@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cypress run --browser chrome --headless",
-    "cy:run": "cypress run --browser chrome --headless",
+    "test": "cypress run --browser electron --headless",
+    "cy:run": "cypress run --browser electron --headless",
     "cy:open": "cypress open",
     "report:clean": "rm -rf mochawesome-report cypress/reports/mochawesome-json cypress/reports/screenshots",
     "test:e2e:report": "npm run report:clean && npm run cy:run",

@@ -1,8 +1,5 @@
 /* global Given, When, Then, And */
-import CartPage from '../pageobjects/CartPage';
 import { faker } from '@faker-js/faker';
-
-const cartPage = new CartPage();
 
 const user = {
     name: faker.person.firstName(),
@@ -17,50 +14,50 @@ const user = {
 };
 
 Given("the user is on the QA commerce homepage", () => {
-    cartPage.accessHomepage();
+    cy.accessHomepage();
 });
 
 Given("the user adds a product in the cart", () => {
-    cartPage.addProductToCart();
+    cy.addProductToCart();
 });
 
 Given("your cart does not has the product {int}", () => {
-    cartPage.deleteItemOne();
+    cy.deleteItemOne();
 });
 
 Given("a user is on the cart page", () => {
-    cartPage.goToCart();
+    cy.goToCart();
 });
 
 Then("the cart should display {string} item", (expectedItem) => {
-    cartPage.validateItemIsVisible(expectedItem);
+    cy.validateItemIsVisible(expectedItem);
 });
 
 And("the user is on the checkout page", () => {
-    cartPage.clickOnCheckoutButton();
+    cy.clickOnCheckoutButton();
 });
 
 And("the user fills in all required shipping information", () => {
-    cartPage.fillUserName(user.name);
-    cartPage.fillLastName(user.lastName);
-    cartPage.fillAddressInformation(user.street);
-    cartPage.fillAddressNumber();
-    cartPage.fillZipCode();
-    cartPage.fillEmailInformation(user.email);
+    cy.fillUserName(user.name);
+    cy.fillLastName(user.lastName);
+    cy.fillAddressInformation(user.street);
+    cy.fillAddressNumber();
+    cy.fillZipCode();
+    cy.fillEmailInformation(user.email);
 });
 
 And("the user selects {string} as the payment method", () => {
-    cartPage.selectPixPaymentMethod();
+    cy.selectPixPaymentMethod();
 });
 
 And("the user accept the condition terms", () => {
-    cartPage.checkConditionTerms();
+    cy.checkConditionTerms();
 });
 
 And("the user clicks the Finalizar Pedido button", () => {
-    cartPage.clickFinishOrderButton();
+    cy.clickFinishOrderButton();
 });
 
 Then("the user should see the order status", () => {
-    cartPage.validateOrderStatusMessage(user.name);
+    cy.validateOrderStatusMessage(user.name);
 });
